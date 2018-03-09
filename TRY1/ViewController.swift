@@ -10,6 +10,10 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    let tijeras: UIButton = {
+        let buttonDeTijeras = UIButton()
+        buttonDeTijeras.setBackgroundImage(<#T##image: UIImage?##UIImage?#>, for: <#T##UIControlState#>)
+    }()
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
