@@ -10,6 +10,8 @@
 		E404F96A2052051A00FE9DB1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E404F9692052051A00FE9DB1 /* AppDelegate.swift */; };
 		E404F96C2052051A00FE9DB1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E404F96B2052051A00FE9DB1 /* ViewController.swift */; };
 		E404F9712052051A00FE9DB1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E404F9702052051A00FE9DB1 /* Assets.xcassets */; };
+		E404F97C2052156500FE9DB1 /* WinnersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E404F97B2052156500FE9DB1 /* WinnersView.swift */; };
+		E404F9A02052594D00FE9DB1 /* winnerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E404F99F2052594D00FE9DB1 /* winnerDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -18,6 +20,8 @@
 		E404F96B2052051A00FE9DB1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		E404F9702052051A00FE9DB1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E404F9752052051A00FE9DB1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E404F97B2052156500FE9DB1 /* WinnersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WinnersView.swift; sourceTree = "<group>"; };
+		E404F99F2052594D00FE9DB1 /* winnerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = winnerDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,8 +56,10 @@
 			children = (
 				E404F9692052051A00FE9DB1 /* AppDelegate.swift */,
 				E404F96B2052051A00FE9DB1 /* ViewController.swift */,
+				E404F97B2052156500FE9DB1 /* WinnersView.swift */,
 				E404F9702052051A00FE9DB1 /* Assets.xcassets */,
 				E404F9752052051A00FE9DB1 /* Info.plist */,
+				E404F99F2052594D00FE9DB1 /* winnerDelegate.swift */,
 			);
 			path = TRY1;
 			sourceTree = "<group>";
@@ -129,6 +135,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				E404F96C2052051A00FE9DB1 /* ViewController.swift in Sources */,
+				E404F9A02052594D00FE9DB1 /* winnerDelegate.swift in Sources */,
+				E404F97C2052156500FE9DB1 /* WinnersView.swift in Sources */,
 				E404F96A2052051A00FE9DB1 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
