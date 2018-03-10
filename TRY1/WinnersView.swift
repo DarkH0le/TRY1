@@ -122,12 +122,10 @@ class WinnersView: UIViewController {
     }
 }
 
-//exten
+//extention for implementin the delegate
 extension WinnersView: winnerDelegate {
     func valueSelected(value: String) {
         labelWinner.text = value
     }
-    
-    
 }
 

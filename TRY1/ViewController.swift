@@ -12,8 +12,10 @@ import UIKit
 class ViewController: UIViewController {
 
     var playerChoose:String = "Tijeras"
+    //This basically is going to hold the instance of the view of who was called, inside this is WinnerView
     var winnerDelegate: winnerDelegate?
     
+    //Creating UIElments
     let tijeras: UIButton = {
         let buttonDeTijeras = UIButton(type: .system)
         buttonDeTijeras.setBackgroundImage(UIImage(named: "tijeras"), for: .focused)
@@ -53,17 +55,16 @@ class ViewController: UIViewController {
     
     @objc func play(_ sender:UIButton){
         
+        //Check wich button was pressed
         switch sender {
         case papel:
-            //self.playerChoose = "PAPEL"
+            //Seting inside the WinnersView the value of PAPEL, retrining the data between the two views
             winnerDelegate?.valueSelected(value: "PAPEL")
             print("papel")
         case tijeras:
-            //self.playerChoose = "TIJERAS"
             winnerDelegate?.valueSelected(value: "TIJERAS")
             print("tijeras")
         case piedra:
-            //self.playerChoose = "PIEDRA"
             winnerDelegate?.valueSelected(value: "PIEDRA")
             print("piedra")
         default:
