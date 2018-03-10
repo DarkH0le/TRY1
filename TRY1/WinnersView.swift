@@ -47,6 +47,7 @@ class WinnersView: UIViewController {
         return btn
     }()
     
+    //Function that show the image to picke and option
     @objc func playAgain() -> Void{
         let viewMain:ViewController = ViewController()
         present(viewMain, animated: true, completion: nil)
@@ -54,6 +55,8 @@ class WinnersView: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.brown
+        
+        //Setup al the UI elements, constrains, addsuviews,etc,autolayout,etc.
         setViews()
 
     }
@@ -65,6 +68,7 @@ class WinnersView: UIViewController {
         view.addSubview(square)
         square.addSubview(playAgainBtn)
 
+        //Cons for land and port
         self.portCons = [
             //Setting the label
             labelWinner.topAnchor.constraintLessThanOrEqualToSystemSpacingBelow(view.topAnchor, multiplier: 20),
@@ -98,20 +102,12 @@ class WinnersView: UIViewController {
             playAgainBtn.centerYAnchor.constraint(equalTo: square.centerYAnchor)]
         
         NSLayoutConstraint.activate(portCons)
-//        labelWinner.centerXAnchor.constraint(equalTo: view.centerXAnchor)
-//        labelWinner.centerYAnchor.constraint(equalTo: view.centerYAnchor)
-//        playAgainBtn.heightAnchor.constraint(greaterThanOrEqualToConstant: 36).isActive
-//        playAgainBtn.widthAnchor.constraint(greaterThanOrEqualToConstant: 88).isActive
-//        playAgainBtn.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive
-//        playAgainBtn.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant:-(view.bounds.height*1/10))
-        
-        
-        
     }
 
+    //Notifies the container that its trait collection changed.
     override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
 
-        print("\n\n\n \(newCollection)")
+        //Check if the phone is in land or port mode
         if newCollection.horizontalSizeClass == UIUserInterfaceSizeClass.compact && newCollection.verticalSizeClass == UIUserInterfaceSizeClass.compact {
             print("\n\n\nProbablemente estes en landscape")
             NSLayoutConstraint.deactivate(portCons)
@@ -126,7 +122,7 @@ class WinnersView: UIViewController {
     }
 }
 
-
+//exten
 extension WinnersView: winnerDelegate {
     func valueSelected(value: String) {
         labelWinner.text = value
