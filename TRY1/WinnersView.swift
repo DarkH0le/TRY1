@@ -29,7 +29,7 @@ class WinnersView: UIViewController {
     
     let square: UIView = {
         let newview = UIView()
-        newview.backgroundColor = UIColor.cyan
+        newview.backgroundColor = UIColor.blue
         newview.translatesAutoresizingMaskIntoConstraints = false
         return newview
     }()
@@ -39,7 +39,7 @@ class WinnersView: UIViewController {
         btn.translatesAutoresizingMaskIntoConstraints = false
         btn.setTitle("PlAY" , for: .normal)
         btn.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
-        btn.backgroundColor = UIColor.cyan
+        btn.backgroundColor = UIColor.magenta
         btn.layer.cornerRadius = 3
         btn.layer.shadowOpacity = 0.8
         btn.layer.shadowOffset = CGSize(width: 3, height: 2)
@@ -50,15 +50,15 @@ class WinnersView: UIViewController {
     //Function that show the image to picke and option
     @objc func playAgain() -> Void{
         let viewMain:ViewController = ViewController()
+        viewMain.modalPresentationStyle = .overCurrentContext
         present(viewMain, animated: true, completion: nil)
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor.brown
+        view.backgroundColor = UIColor.white
         
         //Setup al the UI elements, constrains, addsuviews,etc,autolayout,etc.
         setViews()
-
     }
     
     func setViews() -> Void {
@@ -101,14 +101,13 @@ class WinnersView: UIViewController {
             playAgainBtn.centerXAnchor.constraint(equalTo: square.centerXAnchor),
             playAgainBtn.centerYAnchor.constraint(equalTo: square.centerYAnchor)]
         
-        NSLayoutConstraint.activate(portCons)
+        applyView(self.traitCollection)
     }
-
-    //Notifies the container that its trait collection changed.
-    override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
-
-        //Check if the phone is in land or port mode
-        if newCollection.horizontalSizeClass == UIUserInterfaceSizeClass.compact && newCollection.verticalSizeClass == UIUserInterfaceSizeClass.compact {
+    
+    func applyView(_ nextTraitCollection:UITraitCollection) -> Void {
+        
+        //Check the size of the screen, next apply the correct constrains
+        if nextTraitCollection.horizontalSizeClass == UIUserInterfaceSizeClass.compact && nextTraitCollection.verticalSizeClass == UIUserInterfaceSizeClass.compact {
             print("\n\n\nProbablemente estes en landscape")
             NSLayoutConstraint.deactivate(portCons)
             NSLayoutConstraint.activate(landCons)
@@ -116,9 +115,15 @@ class WinnersView: UIViewController {
             print("\n\n\nProbablemente estes en portrait")
             NSLayoutConstraint.deactivate(landCons)
             NSLayoutConstraint.activate(portCons)
-            
         }
         
+    }
+
+    //Notifies the container that its trait collection changed.
+    override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
+
+        //Check if the phone is in land or port mode
+        applyView(newCollection)
     }
 }
 
